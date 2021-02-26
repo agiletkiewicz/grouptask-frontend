@@ -8,10 +8,16 @@ const ListForm = () => {
         setName(e.target.value);
     }
 
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        console.log(name);
+    }
+
     return (
-        <form>
-            <input name={name} onChange={onChange} id="name"/>
-            {console.log(name)}
+        <form onSubmit={handleSubmit}>
+            <label>List name</label>
+            <input name={name} onChange={onChange} id="name" type="text"/>
+            <input type="submit"/>
         </form>
     )
 
